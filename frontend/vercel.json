@@ -2,7 +2,7 @@
     "rewrites": [
       {
         "source": "/api/(.*)",
-        "destination": "https://personal-notes-backend.vercel.app"
+        "destination": "https://personal-notes-backend.vercel.app/"
       },
       {
         "source": "/(.*)",
