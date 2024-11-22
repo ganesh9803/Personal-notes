@@ -25,3 +25,5 @@ app.get('/',(req,res)=> {
 })
 
 app.listen(port, ()=>console.log('Sever started on PORT : ' + port))
+
+export default app;
