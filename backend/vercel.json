@@ -11,10 +11,6 @@
         "src": "/api/notes",
         "dest": "/routes/notes.js"
       }
-    ],
-    "env": {
-      "MONGO_URI": "@mongo-uri",
-      "NODE_ENV": "production"
-    }
+    ]
   }
   
