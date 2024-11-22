@@ -7,6 +7,7 @@ import notesRoutes from './routes/index.js';
 dotenv.config();
 
 const app = express();
+const port = process.env.PORT || 5000 
 
 // Database connection
 connectDB();
@@ -19,7 +20,8 @@ app.use(express.json());
 app.use('/api/notes', notesRoutes);
 
 // Start server
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
-});
+app.get('/',(req,res)=> {
+  res.send("API Working")
+})
+
+app.listen(port, ()=>console.log('Sever started on PORT : ' + port))
