@@ -20,7 +20,7 @@ const Home = () => {
 
   const fetchNotes = async () => {
     try {
-      const response = await axios.get(`${API_BASE_URL}/notes`, {
+      const response = await axios.get(`${API_BASE_URL}/api/notes`, {
         params: { search: searchQuery, category: selectedCategory },
       });
       setNotes(response.data);
@@ -31,7 +31,7 @@ const Home = () => {
 
   const addNote = async (note) => {
     try {
-      const response = await axios.post(`${API_BASE_URL}/notes`, note);
+      const response = await axios.post(`${API_BASE_URL}/api/notes`, note);
       setNotes([response.data, ...notes]);
     } catch (error) {
       console.error('Error adding note:', error);
@@ -40,7 +40,7 @@ const Home = () => {
 
   const deleteNote = async (id) => {
     try {
-      await axios.delete(`${API_BASE_URL}/notes/${id}`);
+      await axios.delete(`${API_BASE_URL}/api/notes/${id}`);
       setNotes(notes.filter((note) => note._id !== id));
     } catch (error) {
       console.error('Error deleting note:', error);
@@ -49,7 +49,7 @@ const Home = () => {
 
   const updateNote = async (id, updatedNote) => {
     try {
-      const response = await axios.put(`${API_BASE_URL}/notes/${id}`, updatedNote);
+      const response = await axios.put(`${API_BASE_URL}/api/notes/${id}`, updatedNote);
       setNotes(notes.map((note) => (note._id === id ? response.data : note)));
       setEditingNote(null); // Close the edit form
     } catch (error) {
