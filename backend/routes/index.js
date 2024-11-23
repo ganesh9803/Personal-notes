@@ -7,7 +7,7 @@ import noteValidation from '../validation/noteValidation.js';
 const router = express.Router();
 
 // Create Note
-router.post('/', async (req, res) => {
+router.post('/add', async (req, res) => {
   const { error } = noteValidation.validate(req.body);
   if (error) return res.status(400).json({ error: error.details[0].message });
 
@@ -21,7 +21,7 @@ router.post('/', async (req, res) => {
 });
 
 // Get All Notes
-router.get('/', async (req, res) => {
+router.get('/get', async (req, res) => {
   const { category, search } = req.query;
   const filter = {};
   if (category) filter.category = category;
