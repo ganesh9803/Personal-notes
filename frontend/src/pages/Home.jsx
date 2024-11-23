@@ -20,7 +20,7 @@ const Home = () => {
 
   const fetchNotes = async () => {
     try {
-      const response = await axios.get(`${API_BASE_URL}/api/notes`, {
+      const response = await axios.get(`${API_BASE_URL}/api/notes/get`, {
         params: { search: searchQuery, category: selectedCategory },
       });
       setNotes(response.data);
@@ -31,7 +31,7 @@ const Home = () => {
 
   const addNote = async (note) => {
     try {
-      const response = await axios.post(`${API_BASE_URL}/api/notes`, note);
+      const response = await axios.post(`${API_BASE_URL}/api/notes/add`, note);
       setNotes([response.data, ...notes]);
     } catch (error) {
       console.error('Error adding note:', error);
